@@ -12,22 +12,16 @@ import {
 } from "react-router-dom";
 
 const Login = () => {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false)
   const [isError, setIsError] = useState(false)
   const url = 'https://reqres.in/api/login'
 
   let history = useHistory();
 
-  const handleForgotPassword = () => {
-    history.push("/forgotPassword")
-  }
-
   const handleLogin = () => {
     try {
-      console.log('email', email)
-      console.log('password', password)
       setIsLoading(true)
       const body = JSON.stringify({
         "email": email,
@@ -57,11 +51,10 @@ const Login = () => {
   }
 
   return (
-    <Box minH="100vh" d="flex" alignItems="center" justifyContent="center" className="arcade">
+    <Box minH="100vh" d="flex" alignItems="center" justifyContent="center">
       <Stack spacing={3} minW="360px">
         <Box d="flex" alignItems="center" justifyContent="center" flexDirection="column">
           <Text
-            className="arcade"
             fontSize={["4vw", "2vw"]}
             bgGradient="linear(to-l, #7928CA, #FF0080)"
             bgClip="text"
@@ -93,9 +86,6 @@ const Login = () => {
             </Box>
 
           </Box>
-          <Text _hover={{
-            color: "teal"
-          }} fontSize="md" onClick={() => handleForgotPassword()}> Forgot password?</Text>
         </Box>
       </Stack>
     </Box>

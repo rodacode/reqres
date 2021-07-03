@@ -1,4 +1,19 @@
 I decided to use create-react-app with a chakra ui for fast and easy scaffolding of basic needed react packages and easy development of the UI.
+
+Also tryed to not install too many libraries, I could use axios for the api calls.
+
+As the API doesn't keep data persistent. I kind of fake the edit functionality to update the user on the frontend as well, but that doesn't persist after a refresh. I could use local storage but not the proper solution this kind of data persistance should happend on the backend side.
+
+That also apply for the delete action. 
+
+
+Many things can be improve:
+
+ - Improve error handling
+ - Improve inputs forms validation
+ - Add redux and state management if the app grows.
+ - Improve responsive UX.
+ 
 ## Available Scripts
 
 In the project directory, you can run:
