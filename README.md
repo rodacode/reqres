@@ -1,5 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+I decided to use create-react-app with a chakra ui for fast and easy scaffolding of basic needed react packages and easy development of the UI.
 ## Available Scripts
 
 In the project directory, you can run:
