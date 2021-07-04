@@ -10,7 +10,8 @@ import {
     Text,
     Input,
     Button,
-    useToast
+    useToast,
+    ScaleFade
 } from "@chakra-ui/react"
 import { EditIcon, DeleteIcon } from '@chakra-ui/icons'
 import {
@@ -133,8 +134,8 @@ const List = () => {
                     onClick={handleUpdateUser}>SAVE</Button> : null}
             </Box>
             {isAddUserFormShown ?
-                <AddUserForm />
-                :
+                <ScaleFade initialScale={0.9} in={isAddUserFormShown}>
+                    <AddUserForm /></ScaleFade> :
                 null}
             <Text m="8" fontSize={"24px"}>Users List</Text>
             <Box d="flex" width={["100%"]} p="8" ml="auto" mr="auto" flexDirection='column' justifyContent="center">
@@ -154,7 +155,7 @@ const List = () => {
                             <Tbody>
                                 {users && users.map((user, index) => {
                                     return (
-                                        <Tr key={index} height="50px">
+                                        <Tr key={index} height="50px" _hover={{ bg: '#033747' }}>
                                             {user && isEditMode && userToEdit === index ?
                                                 <>
                                                     <Td colSpan={4}><Image mr="auto" ml="auto" borderRadius="full" src={user.avatar} boxSize="40px"
@@ -171,8 +172,8 @@ const List = () => {
                                                     <Td>{user.first_name}</Td>
                                                     <Td>{user.last_name}</Td>
                                                     <Td>{user.email}</Td>
-                                                    <Td colSpan={2} onClick={() => handleEditUser(user, index)} isNumeric><EditIcon /></Td>
-                                                    <Td colSpan={2} isNumeric><DeleteIcon onClick={() => handleDeleteUser(user.id)} /></Td>
+                                                    <Td colSpan={2} onClick={() => handleEditUser(user, index)} _hover={{ color: '#16BCF1', cursor: "pointer" }} isNumeric><EditIcon /></Td>
+                                                    <Td colSpan={2} _hover={{ color: '#16BCF1', cursor: "pointer" }} isNumeric><DeleteIcon onClick={() => handleDeleteUser(user.id)} /></Td>
                                                 </>
                                             }
                                         </Tr>

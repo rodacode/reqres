@@ -49,6 +49,12 @@ const Signup = () => {
       console.log('error', error)
     }
   }
+
+  const handleLoginClick = () => {
+    history.push("/")
+
+  }
+
   return (
     <Box minH="100vh" d="flex" alignItems="center" justifyContent="center">
       <Stack spacing={3} minW="360px">
@@ -56,7 +62,6 @@ const Signup = () => {
 
           <Text
             fontSize={["4vw", "2vw"]}
-            bgGradient="linear(to-l, #7928CA, #FF0080)"
             bgClip="text"
             textAlign="center"
           >
@@ -66,8 +71,9 @@ const Signup = () => {
 
         <Text fontSize="2xl" mt="4" textAlign="center"> Let's get started 👋</Text>
         {isError ? <Text fontSize="2xl" color="red" textAlign="center">Wrong email or password </Text> : null}
-        <Input placeholder="Email" value={email} onChange={(event) => setEmail(event.currentTarget.value.toLocaleLowerCase().trim())} />
+        <Input data-testid="signup__email__input" placeholder="Email" value={email} onChange={(event) => setEmail(event.currentTarget.value.toLocaleLowerCase().trim())} />
         <Input
+          data-testid="signup__password__input"
           placeholder="Password"
           type="password"
           value={password}
@@ -81,7 +87,8 @@ const Signup = () => {
           <Box _hover={{
             color: "teal"
           }}>
-            <Link to="/" >Login </Link>
+            <Button isLoading={isLoading} colorScheme="teal"
+              onClick={handleLoginClick}>Login</Button>
           </Box>
         </Box>
 

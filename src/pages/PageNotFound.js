@@ -1,15 +1,8 @@
-import { useState } from 'react';
 import {
-    Button,
     Stack,
-    Input,
     Box,
     Text
 } from '@chakra-ui/react';
-import {
-    Link,
-    useHistory
-} from "react-router-dom";
 
 const PageNotFound = () => {
 

@@ -50,24 +50,29 @@ const Login = () => {
     }
   }
 
+  const handleSignupClick = () => {
+    history.push("/signup")
+
+  }
+
   return (
     <Box minH="100vh" d="flex" alignItems="center" justifyContent="center">
       <Stack spacing={3} minW="360px">
         <Box d="flex" alignItems="center" justifyContent="center" flexDirection="column">
           <Text
             fontSize={["4vw", "2vw"]}
-            bgGradient="linear(to-l, #7928CA, #FF0080)"
             bgClip="text"
             textAlign="center"
           >
-            Login
+            Reqres App
           </Text>
         </Box>
         <Text fontSize="2xl" textAlign="center"> Welcome back 👋</Text>
-        {isError ? <Text fontSize="2xl" color="red" textAlign="center">Wrong email or password </Text> : null}
+        {isError ? <Text fontSize="2xl" color="red" textAlign="center">Wrong email or password</Text> : null}
 
-        <Input placeholder="Email" value={email} onChange={(event) => setEmail(event.currentTarget.value.toLocaleLowerCase().trim())} required />
+        <Input data-testid="login__email__input" placeholder="Email" value={email} onChange={(event) => setEmail(event.currentTarget.value.toLocaleLowerCase().trim())} required />
         <Input
+          data-testid="login__password__input"
           placeholder="Password"
           type="password"
           value={password}
@@ -82,7 +87,8 @@ const Login = () => {
             <Box _hover={{
               color: "teal"
             }}>
-              <Link to="/signup" fontSize="l">Sign Up</Link>
+              <Button isLoading={isLoading} colorScheme="teal"
+                onClick={handleSignupClick}>Sign Up</Button>
             </Box>
 
           </Box>

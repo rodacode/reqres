@@ -13,6 +13,7 @@ import {
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import List from './pages/List'
+import PageNotFound from './pages/PageNotFound'
 
 function App() {
 
@@ -34,7 +35,7 @@ function App() {
               <List />
             </Route>
             <Route path="*">
-              <NoMatch />
+              <PageNotFound />
             </Route>
           </Switch>
         </Router>
