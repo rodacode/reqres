@@ -24,6 +24,9 @@ import {
 } from "chakra-paginator";
 import ListSkeleton from '../components/ListSkeleton'
 import AddUserForm from '../components/AddUserForm'
+import {
+    useHistory
+} from "react-router-dom";
 
 const List = () => {
     const [users, setUsers] = useState()
@@ -43,15 +46,18 @@ const List = () => {
     const [userId, setUserId] = useState()
     const [userAvatar, setUserAvatar] = useState()
     const toast = useToast()
+    let history = useHistory();
 
     useEffect(() => {
-        handleFetchUsers(currentPage)
-    }, [currentPage])
-
-    const handleFetchUsers = (offset) => {
         try {
             setIsLoading(true)
-            fetch(`${url}?page=${offset}`).then((res) => res.json()).then((response) => {
+            fetch(`${url}?page=${currentPage}`).then((res) => {
+                if (res.status === 500) {
+                    return history.push("/error500")
+                }
+                else { return res.json() }
+            }
+            ).then((response) => {
                 setUsers(response.data);
                 setPagesQuantity(response?.total_pages)
                 setIsLoading(false)
@@ -59,7 +65,7 @@ const List = () => {
         } catch (error) {
             console.log(error);
         }
-    }
+    }, [currentPage, history])
 
     const handleDeleteUser = (id) => {
         try {
@@ -110,7 +116,6 @@ const List = () => {
                 body: body
             }
             ).then((response) => {
-                console.log('updated', response)
                 users[userToEdit] = { id: userId, avatar: userAvatar, first_name: userFirstName, last_name: userLastName, email: userEmail }
                 setIsEditMode(false)
                 toast({

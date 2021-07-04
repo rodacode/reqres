@@ -14,6 +14,7 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import List from './pages/List'
 import PageNotFound from './pages/PageNotFound'
+import Error500Page from './pages/Error500Page'
 
 function App() {
 
@@ -33,6 +34,9 @@ function App() {
             </Route>
             <Route exact path="/list">
               <List />
+            </Route>
+            <Route exact path="/error500">
+              <Error500Page />
             </Route>
             <Route path="*">
               <PageNotFound />

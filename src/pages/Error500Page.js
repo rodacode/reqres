@@ -8,7 +8,7 @@ import {
     useHistory
 } from "react-router-dom";
 
-const PageNotFound = () => {
+const Error500Page = () => {
     let history = useHistory();
 
     const handleHomeClick = () => {
@@ -25,10 +25,9 @@ const PageNotFound = () => {
                         bgClip="text"
                         textAlign="center"
                     >
-                        Page Not Found
+                        Error 500 - Internal server error
                     </Text>
-                    <Button colorScheme="teal"
-                        onClick={handleHomeClick}>Go to Homepage</Button>
+                    <Button colorScheme="teal" onClick={handleHomeClick}>Go to Homepage</Button>
                 </Box>
             </Stack>
         </Box>
@@ -36,4 +35,4 @@ const PageNotFound = () => {
     );
 };
 
-export default PageNotFound;
+export default Error500Page;
