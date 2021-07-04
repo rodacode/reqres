@@ -1,10 +1,9 @@
 import React from 'react';
 import {
   ChakraProvider,
-  Box,
-  theme,
+  Box
 } from '@chakra-ui/react';
-import { ColorModeSwitcher } from './ColorModeSwitcher';
+import { ColorModeSwitcher } from './components/ColorModeSwitcher';
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,6 +14,7 @@ import Signup from './pages/Signup'
 import List from './pages/List'
 import PageNotFound from './pages/PageNotFound'
 import Error500Page from './pages/Error500Page'
+import theme from './theme'
 
 function App() {
 
